@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, View } from 'react-native';
+import { FlatList, View } from 'react-native';
 import { CATEGORIES } from '../data/dummy-data';
 import CategoryGridTile from '../components/CategoryGridTile';
 
@@ -18,7 +18,7 @@ function CategoriesScreen({ navigation }) {
   }
 
   return (
-    <View style={styles.listContainer}>
+    <View>
       <FlatList
         data={CATEGORIES}
         renderItem={renderCategoryItem}
@@ -30,9 +30,3 @@ function CategoriesScreen({ navigation }) {
 }
 
 export default CategoriesScreen;
-
-const styles = StyleSheet.create({
-  listContainer: {
-    // backgroundColor: '#24180f',
-  },
-});
