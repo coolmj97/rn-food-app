@@ -1,22 +1,23 @@
 import { useNavigation } from '@react-navigation/native';
 import { Image, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
-import MealDetails from './MealDetails';
+import MealDetails from '../MealDetails';
 
-function MealItem({ id, title, imageUrl, duration, complexity, affordability, onPress }) {
+function MealItem({ id, title, imageUrl, duration, complexity, affordability }) {
   //컴포넌트 내부에서 내비게이션 사용하는 방법
+  const navigation = useNavigation();
 
-  // const navigation = useNavigation();
-
-  // navigation.navigate('MealDetail', {
-  //   mealId: id,
-  // });
+  function selectMealItemHandler() {
+    navigation.navigate('MealDetail', {
+      mealId: id,
+    });
+  }
 
   return (
     <View style={styles.mealItem}>
       <Pressable
         android_ripple={{ color: '#ccc' }}
         style={({ pressed }) => (pressed ? styles.buttonPressed : null)}
-        onPress={onPress}
+        onPress={selectMealItemHandler}
       >
         <View style={styles.innerContainer}>
           <View style={styles.imageContainer}>
